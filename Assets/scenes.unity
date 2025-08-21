@@ -42,7 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -4120,6 +4121,7 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
 --- !u!1 &328143594
 GameObject:
   m_ObjectHideFlags: 0
@@ -11519,7 +11521,7 @@ MonoBehaviour:
   ball_strike_velocity: {x: 0, y: 0, z: 0}
   wall_strike_velocity: {x: 0, y: 0, z: 0}
   replay: {fileID: 1005869010}
-  extra_size: 1
+  extra_size: 1.2
 --- !u!33 &757649408
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -20058,10 +20060,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401641881}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -23562,7 +23564,7 @@ LightingSettings:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Settings.lighting
-  serializedVersion: 8
+  serializedVersion: 9
   m_EnableBakedLightmaps: 1
   m_EnableRealtimeLightmaps: 0
   m_RealtimeEnvironmentLighting: 1
@@ -25772,7 +25774,7 @@ MonoBehaviour:
   ball_strike_velocity: {x: 0, y: 0, z: 0}
   wall_strike_velocity: {x: 0, y: 0, z: 0}
   replay: {fileID: 1005869010}
-  extra_size: 1
+  extra_size: 1.2
 --- !u!33 &1761045928
 MeshFilter:
   m_ObjectHideFlags: 0

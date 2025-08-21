@@ -27,6 +27,8 @@ public class Wand : MonoBehaviour
     Vector3 prev_hv;
     Vector3 prev_pos = new Vector3();
     Quaternion prev_rot = new Quaternion();
+    float time_step = 1.0f / 90.0f;
+
 
     InputDevice device;
 
@@ -73,6 +75,34 @@ public class Wand : MonoBehaviour
     */
 
     public void wand_motion(out Vector3 position, out Quaternion rotation,
+        out Vector3 velocity, out Vector3 angular_velocity,
+        out Vector3 acceleration)
+    {
+        if (have_device())
+            wand_motion_xr(out position, out rotation, out velocity, out angular_velocity, out acceleration);
+        else
+            wand_motion_cave(out position, out rotation, out velocity, out angular_velocity, out acceleration);
+    }
+
+    public void wand_motion_cave(out Vector3 position, out Quaternion rotation,
+        out Vector3 velocity, out Vector3 angular_velocity,
+        out Vector3 acceleration)
+    {
+        position = transform.position;
+        rotation = transform.rotation;
+        velocity = (prev_pos - position) / time_step;
+        acceleration = (velocity - prev_hv) / time_step;
+
+        Quaternion delta_rotation = rotation * Quaternion.Inverse(prev_rot);
+        delta_rotation.ToAngleAxis(out float angle, out Vector3 axis);
+        angular_velocity = angle * time_step * axis;
+
+        prev_pos = position;
+        prev_rot = rotation;
+        prev_hv = velocity;
+    }
+
+    public void wand_motion_xr(out Vector3 position, out Quaternion rotation,
         out Vector3 velocity, out Vector3 angular_velocity,
         out Vector3 acceleration)
     {
@@ -172,7 +202,6 @@ public class Wand : MonoBehaviour
           be advanced by the right amount.  Advancing ball by only half
           the amount can cause double strikes.
          */
-        float time_step = 1.0f / 90.0f;
         if (hv.magnitude > 2f)
             //hv = 2*(hp - prev_pos) / time_step - prev_hv; // Unstable
             hv = (hp - prev_pos) / time_step;

@@ -18,7 +18,7 @@
                     "name": "HoldBall",
                     "type": "Button",
                     "id": "fea81143-bf99-4b9c-9274-dd7bf9e1179a",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -80,6 +80,17 @@
                     "name": "",
                     "id": "e6b98639-62c1-4cdc-aa81-d0f43c406ec6",
                     "path": "<XRController>{LeftHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldBall",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "34a24b21-dba5-411f-96b5-d86184171a0e",
+                    "path": "<Keyboard>/#(H)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
