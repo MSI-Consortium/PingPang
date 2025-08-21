@@ -14,5 +14,5 @@ public class TouchUI : MonoBehaviour
 		Button b = touched.GetComponent<Button>();
 		if (b != null)
 			ExecuteEvents.Execute(b.gameObject, new BaseEventData(EventSystem.current), ExecuteEvents.submitHandler);
-    }
+	}
 }
